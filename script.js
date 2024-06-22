@@ -102,16 +102,16 @@
             if (popup) {
                 if (debug) console.log("Remove Adblock Thing: Popup detected, removing...");
 
-                if(popupButton) popupButton.click();
+                // if(popupButton) popupButton.click();
                 // if(popupButton2) popupButton2.click();
                 popup.remove();
-                unpausedAfterSkip = 2;
+                //unpausedAfterSkip = 2;
 
-                fullScreenButton.dispatchEvent(mouseEvent);
-              
-                setTimeout(() => {
-                  fullScreenButton.dispatchEvent(mouseEvent);
-                }, 500);
+                //fullScreenButton.dispatchEvent(mouseEvent);
+
+                //setTimeout(() => {
+                //  fullScreenButton.dispatchEvent(mouseEvent);
+                //}, 500);
 
                 if (debug) console.log("Remove Adblock Thing: Popup removed");
             }
@@ -120,8 +120,8 @@
             if (!unpausedAfterSkip > 0) return;
 
             // UnPause The Video
-            unPauseVideo(video1);
-            unPauseVideo(video2);
+            //unPauseVideo(video1);
+            //unPauseVideo(video2);
 
         }, 1000);
     }
@@ -146,9 +146,9 @@
             if (ad)
             {
                 const video = document.querySelector('video');
-                video.playbackRate = 10;
+                video.playbackRate = (10-3)-(Math.random()*2);
                 video.volume = 0;
-                video.currentTime = video.duration;
+                //video.currentTime = video.duration-2;
                 //skipBtn?.click();
             }
 
@@ -159,7 +159,7 @@
             feedAd?.remove();
             youtubepremium?.remove();
             mastheadAd?.remove();
-            /*sponsor?.forEach((element) => {
+            sponsor?.forEach((element) => {
                  if (element.getAttribute("id") === "panels") {
                     element.childNodes?.forEach((childElement) => {
                       if (childElement.data.targetId && childElement.data.targetId !=="engagement-panel-macro-markers-description-chapters")
@@ -169,9 +169,9 @@
                        } else {
                            element.remove();
                        }
-             });*/
+             });
             //nonVid?.click();
-        }, 50)
+        }, 150)
     }
     // Unpause the video Works most of the time
     function unPauseVideo(video)
@@ -194,7 +194,7 @@
             let obj = window;
             let previousObj = null;
             let partToSetUndefined = null;
-        
+
             for (const part of pathParts) {
                 if (obj.hasOwnProperty(part)) {
                     previousObj = obj; // Keep track of the parent object.
@@ -204,7 +204,7 @@
                     break; // Stop when we reach a non-existing part.
                 }
             }
-        
+
             // If we've identified a valid part to set to undefined, do so.
             if (previousObj && partToSetUndefined !== null) {
                 previousObj[partToSetUndefined] = undefined;
